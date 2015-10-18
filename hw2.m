@@ -1,5 +1,8 @@
+
+
 function [] = hw2()
-    
+    clear all;
+    close all;
     data = load('2015Assign1_1.txt');
     t = data(:,1);
     y = data(:,2);
@@ -30,7 +33,7 @@ function [] = hw2()
 %% Question 1
 n_theta = 100;
 theta1 = linspace(18,20,n_theta);
-theta2 = linspace(0.5e-7,2e-5,n_theta);
+theta2 = linspace(0.5e-7,2e-4,n_theta);
 L = zeros(n_theta);
 X = zeros(n_theta,1);
 Y = zeros(n_theta,1);
