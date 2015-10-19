@@ -37,13 +37,13 @@ if (model==1)
 
 else if (model==2)
         plot(t,s2,'r','linewidth',2);
-        plot(t,s1+2*sqrt(diag(V2)),'r--','linewidth',2);
-        plot(t,s1-2*sqrt(diag(V2)),'r--','linewidth',2);
+        plot(t,s2+2*sqrt(diag(V2)),'r--','linewidth',2);
+        plot(t,s2-2*sqrt(diag(V2)),'r--','linewidth',2);
 
     else if (model==3)
             plot(t,s3,'r','linewidth',2);
-            plot(t,s1+2*sqrt(diag(V3)),'r--','linewidth',2);
-            plot(t,s1-2*sqrt(diag(V3)),'r--','linewidth',2);
+            plot(t,s3+2*sqrt(diag(V3)),'r--','linewidth',2);
+            plot(t,s3-2*sqrt(diag(V3)),'r--','linewidth',2);
 
         end
     end
@@ -83,7 +83,7 @@ subplot(2,5,i);
 hold on;
 plot(t,s_c(:,i));
 plot(t,s2,'r');
-ylim([-3,3]);
+% ylim([-1,1]);
 end
 
 end
@@ -113,7 +113,7 @@ function Q=cubicQ(n,x,var,l)
 
 theta = var/l;
 h=abs(repmat(x,1,n)-repmat(x',n,1));
-Q=-theta * h^3;
+Q=theta * h.^3;
 
 end
 
