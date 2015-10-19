@@ -1,4 +1,7 @@
+
+
 function [] = hw2()
+<<<<<<< HEAD
 clear;
 data = load('2015Assign1_1.txt');
 p_theta = 0;
@@ -34,8 +37,38 @@ z = T*y; nz = length(z);
 %         log_det_TPSI = trace(logm(C));
         log_det_TPSI = sum(log(eig(C)));
         res = 0.5*log_det_TPSI+0.5*z'*inv(C)*z;
+=======
+    clear all;
+    close all;
+    data = load('2015Assign1_1.txt');
+    t = data(:,1);
+    y = data(:,2);
+    % number of unknowns and number of observations
+    m = 400; n = length(y);
+    % get the integral matrix
+    H = shaw(m); 
+    X = ones(m,1);
+    % Q0 and R0
+    Q0 = eye(m); R0 = eye(n);
+    % PHI
+    PHI = H*X;
+    % Transformation
+    T = null(PHI')';
+    z = T*y; nz = length(z);
+    CT = zeros(nz,nz,2);
+    CT(:,:,1) = T*H*Q0*H'*T';
+    CT(:,:,2) = T*T';
+    [theta_rml,Vp, L] = rml(CT, [5;5], z, 0.0001)
+    % the negative loglikelihood function L(theta)
+    function res = GetL(theta1,theta2)
+        PSI = H*theta1*Q0*H'+theta2*R0;
+        TPSI = T*PSI*T';
+        log_det_TPSI = sum(log(eig(TPSI)));
+        res = 0.5*log_det_TPSI+0.5*z'*inv(TPSI)*z;
+>>>>>>> origin/master
     end
 %% Question 1
+<<<<<<< HEAD
 % %{
 n_theta = 10;
 switch case_Q
@@ -48,6 +81,11 @@ switch case_Q
 end
 theta1 = linspace(th1_min,th1_max,n_theta);
 theta2 = linspace(0.5,2,n_theta);
+=======
+n_theta = 100;
+theta1 = linspace(18,20,n_theta);
+theta2 = linspace(0.5e-7,2e-4,n_theta);
+>>>>>>> origin/master
 L = zeros(n_theta);
 X = zeros(n_theta,1);
 Y = zeros(n_theta,1);
