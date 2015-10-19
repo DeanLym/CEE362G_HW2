@@ -1,0 +1,22 @@
+case 1
+
+nugget
+th1 = 19.0073; th2 = 1.0623;
+
+linear
+th1 = 0.6116; th2 = 1.0630;
+
+cubic
+th1 = 1.6526; th2 = 1.0662;
+
+
+case 2
+nugget
+th1 = 15.4401; th2 = 1.0570;
+
+linear
+th1 = 0.4705; th2 = 1.0579;
+
+cubic
+th1 = 1.1594; th2 = 1.0631;
+
